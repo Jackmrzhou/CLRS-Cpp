@@ -5,17 +5,17 @@ using namespace std;
 
 int original_partion(int *A, int p, int r)
 {
-    int x = A[r], k = r;
+    int x = A[r];
     while (true)
     {
-        while(A[p] <= x)
+        while(A[p] < x)
             p++;
-        while (A[k] >= x)
-            k--;
-        if (p < k)
-            swap(A[p], A[k]);
+        while (A[r] > x)
+            r--;
+        if (p < r)
+            swap(A[p], A[r]);
         else
-            return k;
+            return p;
     }
 }
 
