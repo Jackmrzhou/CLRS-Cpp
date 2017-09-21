@@ -1,0 +1,1 @@
+Implementing the basic algorithms, and I just want to synchronize between my two laptops.
