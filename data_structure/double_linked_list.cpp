@@ -21,12 +21,14 @@ public:
   size_t search(const T &k);
   T pop_front();
   size_t size() { return __size; }
+  Node<T> *Head() { return head; }
 
 private:
   Node<T> *head = new Node<T>;
   //head don't store data
   size_t __size;
 };
+/*
 int  main()
 {
     List<int> TestList;
@@ -39,7 +41,7 @@ int  main()
     cout << endl;
     return 0;
 }
-
+*/
 template<class T>
 void List<T>::push_front(const T &obj)
 {
