@@ -94,6 +94,26 @@ class DWGraph
             return dist;
         }
 
+        bool bellman_ford(int S, array<int, v> &dist)
+        //complexity O(V*E)
+        {
+            dist.fill(-1);
+            dist[S] = 0;
+            for (int i = 0; i < v -1; ++i)
+                for (int j = 0; j < v; ++j)
+                    for (auto &it : adj[j])
+                        if ((dist[it.first] == -1 ||dist[it.first] > dist[j] + it.second)
+                         && dist[j] != -1)
+                            dist[it.first] = dist[j] + it.second;
+
+            for (int j = 0; j < v; ++j)
+                for (auto &it : adj[j])
+                    if (dist[j] != -1 && dist[it.first] > dist[j] + it.second)
+                    //mind the j may be unreachable
+                        return false;
+            return true;
+        }
+
     private:
         DataType adj;
 };
@@ -111,5 +131,12 @@ int main()
     for (auto d:dist)
         cout << d << ' ';
     cout << endl;
+
+    if (testG.bellman_ford(3, dist))
+    {
+        for (auto d:dist)
+            cout << d << ' ';
+        cout << endl;
+    }
     return 0;
 }
