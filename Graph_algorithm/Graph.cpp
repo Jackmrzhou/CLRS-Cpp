@@ -20,7 +20,7 @@ public:
 };
 
 class Graph_L
-//direct graph
+//direct unwighted graph
 //naive implmentation
 //we can use hash to improve efficency
 {
